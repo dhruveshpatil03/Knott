@@ -1,5 +1,5 @@
 // Utility functions for validation, formatting, and business logic
-import { LEAKAGE_PATTERNS } from './constants';
+import { LEAKAGE_PATTERNS } from './CONFIG_constants';
 
 // Format currency in Indian format
 export const formatCurrency = (paise) => {
@@ -162,6 +162,13 @@ export const getTrustScoreColor = (score) => {
   if (score >= 70) return 'text-green-600';
   if (score >= 40) return 'text-orange-600';
   return 'text-red-600';
+};
+
+// Get trust color object with text and bg classes
+export const getTrustColor = (score) => {
+  if (score >= 70) return { text: 'text-green-600', bg: 'bg-green-500' };
+  if (score >= 40) return { text: 'text-orange-600', bg: 'bg-orange-500' };
+  return { text: 'text-red-600', bg: 'bg-red-500' };
 };
 
 // Calculate escrow release timestamp
